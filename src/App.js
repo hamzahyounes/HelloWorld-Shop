@@ -15,7 +15,7 @@ class App extends React.Component {
         <div className="app">
           <Router>
           <Header />
-        <ToastContainer />
+          <ToastContainer />
             <Switch>
               <Route path="/" exact component={ProductList} />
               <Route path="/products/:Id" exact component={ProductDetail} />
@@ -23,6 +23,7 @@ class App extends React.Component {
               <Route>404 Not Found</Route>
             </Switch> 
           </Router>
+
         </div>
     )
   }

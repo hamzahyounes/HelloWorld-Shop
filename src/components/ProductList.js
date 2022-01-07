@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { BeatLoader } from "react-spinners";
 import { setProducts } from '../redux/actions/productActions'
 import ProductComponent from "./ProductComponent";
 
@@ -31,8 +32,15 @@ const ProductList = () => {
         fetchProducts()
     }, [])
 
-    console.log("Your products: ", products)
-    if(loading) return <div className="loader"></div>
+    if(loading) {
+        return (
+            <div className="beat-loader-container">
+                <BeatLoader 
+                    color="rgb(255, 153, 0)" 
+                    size={30}
+                />
+            </div>
+    )}
     return ( 
         <div className="container">
             <ProductComponent />

@@ -3,9 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import axios from "axios";
 import { removeSelectedProduct, selectProduct, addProductToCart } from "../redux/actions/productActions";
+import { BeatLoader } from "react-spinners";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const ProductDetail = () => {
@@ -41,10 +42,15 @@ const ProductDetail = () => {
     return (
         <div className="product-container">
         {Object.keys(selectedProduct).length === 0 
-            ? <div className="loader"></div>
+            ? <div className="beat-loader-container">
+                <BeatLoader 
+                    color="rgb(255, 153, 0)" 
+                    size={30}
+                />
+            </div>
             : <div className="product">
                 <div className="product-image" >
-                    <img src={image} alt={title}/>
+                    <img className="product-image-img" src={image} alt={title}/>
                 </div>
                 <div className="product-info">
                     <h3 className="product-title">{title}</h3>

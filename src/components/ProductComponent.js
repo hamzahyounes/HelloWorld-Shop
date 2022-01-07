@@ -16,8 +16,6 @@ const ProductComponent = () => {
         const {id, title, image, price, category} = product;
         return(
             <div key={id} className="card-container">
-
-            
                 <div>
                     <div className="card">
                         <Link to={`/products/${id}`}>
