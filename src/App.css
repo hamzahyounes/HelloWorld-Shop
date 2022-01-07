@@ -1,38 +1,397 @@
-.App {
-  text-align: center;
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  user-select: none;
+  margin: 0;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ===== Header ===== */
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5rem;
+  position: sticky;
+  top: 0;
+  box-shadow: 0px 0px 3px 0.1px rgb(209, 209, 209);
+  margin-bottom: 1rem;
+  z-index: 2;
+  background-color: #fff;
+}
+.fakeshop-icon {
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(255, 153, 0);
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  margin: 0rem 1rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* ----- Header Cart ----- */
+.cart-container {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  text-decoration: none;
+  margin: 0rem 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.products-count {
+  color: #fff;
+  font-size: 1rem;
+  background-color: rgb(255, 153, 0);
+  padding: 0.2rem 0.3rem;
+  border-radius: 0.2rem;
+}
+.cart-icon {
+  color: rgb(255, 153, 0);
+  transform: scale(1.7);
+  margin-left: 1rem;
+}
+
+/* ===== Header End ===== */
+
+.card-container {
+  width: 18vw;
+  margin: 1rem;
+  border: rgb(207, 207, 207) 1px solid;
+  border-radius: 0.4rem;
+  transition: 0.2s ease-in-out transform;
+  box-shadow: 0px 0px 3px 0.1px rgb(209, 209, 209);
+  background-color: white;
+  cursor: pointer;
+}
+.card-container:hover {
+  transform: translate(0, -0.3rem);
+}
+.product-cart {
+  color: #fff;
+  margin: auto;
+  margin-top: 1rem;
+  background-color: rgb(241, 102, 125);
+  font-size: 0.7rem;
+  padding: 0.5rem 2rem;
+  border-radius: 0.2rem;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 1;
+  transition: 0.2s ease-in-out opacity;
+}
+.card-container:hover .product-cart {
+  opacity: 1;
+}
+.product-cart:active {
+  background-color: rgb(243, 73, 101);
+}
+
+.card {
+  background-color: white;
+}
+.card-link {
+  text-decoration: none;
+}
+
+.info {
+  padding: 1rem;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
+  background-color: white;
+}
+
+.title {
+  background-color: white;
+  color: #222;
+}
+.card-container:hover .title {
+  color: rgb(255, 153, 0);
+}
+
+.price {
+  color: rgba(1, 129, 1, 0.5);
+  font-size: 0.95rem;
+  font-weight: bold;
+  margin-top: 0.3rem;
+  background-color: white;
+}
+
+.info .category {
+  color: rgb(170, 170, 170);
+  font-size: 0.8rem;
+  margin-top: 0.3rem;
+  background-color: white;
+}
+
+.image {
+  width: 18vw;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  border-bottom: 1px solid rgba(255, 153, 0, 0.24);
+}
+
+img {
+  width: 70%;
+  height: 12rem;
+  background-size: cover;
+  padding: 1rem;
+  background-color: white;
+}
+
+/* ----------------------------------------------------- */
+
+/* product details page  */
+
+.product-container {
+  width: 60%;
+  margin: auto;
+}
+
+.product-container input {
+  color: #fff;
+  padding: 0.5rem 2rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 0.5rem;
+  transition: ease 0.2s;
+}
+.product-container input:hover {
+  color: white;
+  background-color: rgb(105, 105, 105);
+}
+
+.product {
+  display: flex;
+  align-content: center;
+  height: 80vh;
+  border: 1px solid silver;
+  border-radius: 0.4rem;
+  background-color: white;
+  box-shadow: 0px 0px 3px 0.1px rgb(209, 209, 209);
+}
+
+.product-info {
+  margin: 2rem 0;
+  margin-left: 2rem;
+  padding: 2rem;
+  width: 40%;
+  background-color: white;
+  border-left: 2px solid rgb(230, 229, 229);
+}
+.product-title {
+  margin-bottom: 1rem;
+  background-color: white;
+}
+
+.product-price {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: rgb(230, 245, 255);
+  border-radius: 0.2rem;
+}
+
+.product-description {
+  margin: 1rem 0;
+  font-size: 0.7rem;
+  color: rgb(124, 124, 124);
+  background-color: white;
+}
+.product-category {
+  padding: 0.5rem;
+  margin: 1rem 0;
+  box-shadow: 0px 0px 1px 1px rgb(189, 189, 189);
+  color: rgb(168, 90, 44);
+  background-color: rgb(212, 212, 212);
+  border-radius: 0.2rem;
+}
+
+.product-image {
+  width: 50%;
+  height: 70vh;
+}
+
+.product-image > img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  /* object-fit: cover; */
+}
+
+.add-to-cart {
+  background-color: rgb(241, 102, 125);
+  border-radius: 0.2rem;
+  cursor: pointer;
+  width: 8rem;
+  height: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+.add-to-cart:active {
+  background-color: rgb(243, 73, 101);
+}
+.add-to-cart h4 {
+  color: #fff;
+  background-color: transparent;
+  font-size: 0.7rem;
+}
+.add-to-cart-icon {
+  color: #fff;
+  transform: scale(1);
+  background-color: transparent;
+  display: none;
+}
+.add-to-cart:hover h4 {
+  display: none;
+}
+.add-to-cart:hover .add-to-cart-icon {
+  display: inline-block;
+}
+
+.remove-from-cart {
+  background-color: rgb(228, 0, 38);
+  border-radius: 0.2rem;
+  cursor: pointer;
+  width: 8rem;
+  height: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.remove-from-cart:active {
+  background-color: rgb(175, 3, 32);
+}
+.remove-from-cart h4 {
+  color: #fff;
+  background-color: transparent;
+  font-size: 0.7rem;
+}
+.remove-from-cart-icon {
+  color: #fff;
+  transform: scale(1);
+  background-color: transparent;
+  display: none;
+}
+.remove-from-cart:hover h4 {
+  display: none;
+}
+.remove-from-cart:hover .remove-from-cart-icon {
+  display: inline-block;
+}
+
+/* Making tag for price */
+
+.tag {
+  display: inline-block;
+
+  width: auto;
+
+  background-color: #008fa8;
+  -webkit-border-radius: 3px 4px 4px 3px;
+  -moz-border-radius: 3px 4px 4px 3px;
+  border-radius: 2px 4px 4px 2px;
+
+  border-left: 1px solid #008fa8;
+
+  /* This makes room for the triangle */
+  margin-left: 19px;
+
+  position: relative;
+
   color: white;
+  font-weight: 300;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 0.9rem;
+  line-height: 38px;
+
+  padding: 0 2rem 0 1.5rem;
 }
 
-.App-link {
-  color: #61dafb;
+/* Makes the triangle */
+.tag:before {
+  content: "";
+  position: absolute;
+  display: block;
+  left: -19px;
+  width: 0;
+  height: 0;
+  border-top: 19px solid transparent;
+  border-bottom: 19px solid transparent;
+  border-right: 19px solid #008fa8;
 }
 
-@keyframes App-logo-spin {
-  from {
+/* Makes the circle */
+.tag:after {
+  content: "";
+  background-color: rgb(255, 255, 255);
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  display: block;
+  position: absolute;
+  left: -9px;
+  top: 17px;
+}
+
+/* ----- Toastify Editing ----- */
+.Toastify__progress-bar--success {
+  background-color: rgb(255, 153, 0);
+}
+
+/* ----- Loader ----- */
+
+.loader {
+  border: 8px solid rgb(255, 255, 255);
+  border-top: 8px solid rgba(255, 153, 0, 0.582);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
+/* ----- End Loader ----- */
+
+/* ===== Custom Scrollbar ===== */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 0.1rem rgb(255, 153, 0);
+  border-radius: 4rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 153, 0, 0.753);
+  border-radius: 2rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255, 153, 0);
+}
+/* ===== End Custom Scrollbar ===== */
