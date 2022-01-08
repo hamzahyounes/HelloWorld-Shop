@@ -41,6 +41,13 @@ export const addProductToCart = product => {
     }
 }
 
+export const substractProductFromCart = product => {
+    return {
+        type: actionTypes.SUBSTRACT_PRODUCT,
+        payload: product
+    }
+}
+
 export const removeFromCart = id => {
     return {
         type: actionTypes.REOMOVE_PRODUCT_FROM_CART,

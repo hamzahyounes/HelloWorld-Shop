@@ -9,15 +9,24 @@ const ProductComponent = () => {
     const dispatch = useDispatch();
     const allProducts = useSelector(state => state.allProducts.products);
     const searchedProducts = useSelector(state => state.searchedProducts.products);
-    console.log(searchedProducts)
+    const query = useSelector(state => state.query);
     const addProductCart = product => {
         dispatch(addProductToCart(product))
         toast.success("Added to your cart!")
     }
     let products = null;
 
-    if(searchedProducts.length === 0) products = allProducts;
-    else products = searchedProducts;
+    if(query.length === 0) products = allProducts;
+    else {
+        products = searchedProducts;
+        if(products.length === 0)
+        return <h4>Sorry, No Matches 🙄.</h4>
+    }
+    window.onscroll = function() {
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            return true;
+        }
+    };
     const renderList = products.map(product => {
         const {id, title, image, price, category} = product;
         return(

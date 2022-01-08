@@ -1,13 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { BeatLoader } from "react-spinners";
 import { setProducts } from '../redux/actions/productActions'
 import ProductComponent from "./ProductComponent";
 
 const ProductList = () => {
     const [loading, setLoading] = useState(true)
-    const products = useSelector(state => state)
     //useSelector: It's a function that takes the current state as its argument 
     //... and returns whatever date you want from it
     //... it's very similar to mapStateToProps() 

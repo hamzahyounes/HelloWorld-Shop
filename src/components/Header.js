@@ -6,15 +6,16 @@ import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
 
 
-const Header = () => {
+const Header = (props) => {
     const prouctsInCart = useSelector(state => state.cart);
     const productsCount = prouctsInCart.length;
+    const hideSearchBar = props.location.pathname === "/";
     return(
         <div className='header' id="header">
             <Link className='fakeshop-icon' to='/'>
                 Hello World
             </Link>
-            <SearchBar />
+            {!hideSearchBar ? null: <SearchBar />}
             <Link className='cart-container' to="/cart">
                 <h5 className='products-count'>{productsCount}</h5>
                 <AiOutlineShoppingCart className='cart-icon' />

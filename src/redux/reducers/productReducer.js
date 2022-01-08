@@ -41,12 +41,31 @@ export const selectedProductReducer = (state = {}, {type, payload}) => {
     }
 }
 
-export const productCartProducer = (state= [], action) => {
-    switch(action.type) {
+export const productCartProducer = (state= [], {type, payload}) => {
+    switch(type) {
         case actionTypes.ADD_PRODUCT:
-            return state.concat([action.payload])
+            const editedProduct = state.find(product => product.id === payload.id);
+            if(editedProduct) {
+                const newState = [...state]
+                editedProduct.count +=1;
+                const editedIndex = newState.indexOf(editedProduct)
+                state[editedIndex] = editedProduct
+                return newState
+            }
+            return state.concat([{...payload, count: 1, liked: false}])
+
+        case actionTypes.SUBSTRACT_PRODUCT:
+            const subtractedProduct = state.find(product => product.id === payload.id);
+            if(subtractedProduct) {
+                const newState = [...state]
+                if(subtractedProduct.count > 0) subtractedProduct.count -=1;
+                const subtractedIndex = newState.indexOf(subtractedProduct)
+                state[subtractedIndex] = subtractedProduct
+                return newState
+            }
+
         case actionTypes.REOMOVE_PRODUCT_FROM_CART:
-            const index = state.indexOf(action.payload)
+            const index = state.indexOf(payload)
             let newState = [...state];
             newState.splice(index, 1);
             return newState
