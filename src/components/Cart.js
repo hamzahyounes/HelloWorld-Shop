@@ -13,7 +13,7 @@ const Cart = () => {
     return(
         <React.Fragment>
             {products.length === 0 
-                ? <div style={{color: "#222", display: "flex", justifyContent: "center"}}><h4>Your Cart Is Empty.</h4></div>
+                ? <div style={{color: "#222", display: "flex", justifyContent: "center"}}><h4>Your Cart Is Empty 😕.</h4></div>
                 : products.map(product => {
                     const {title, image, price, description, category} = product;
                     return <div className="product-container-cart">

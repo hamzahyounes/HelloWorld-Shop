@@ -7,11 +7,17 @@ import { addProductToCart } from "../redux/actions/productActions";
 const ProductComponent = () => {
 
     const dispatch = useDispatch();
-    const products = useSelector(state => state.allProducts.products)
+    const allProducts = useSelector(state => state.allProducts.products);
+    const searchedProducts = useSelector(state => state.searchedProducts.products);
+    console.log(searchedProducts)
     const addProductCart = product => {
         dispatch(addProductToCart(product))
         toast.success("Added to your cart!")
     }
+    let products = null;
+
+    if(searchedProducts.length === 0) products = allProducts;
+    else products = searchedProducts;
     const renderList = products.map(product => {
         const {id, title, image, price, category} = product;
         return(

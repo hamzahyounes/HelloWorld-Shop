@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { Link } from 'react-router-dom';
+import SearchBar from './SearchBar';
 
 
 const Header = () => {
@@ -10,9 +11,10 @@ const Header = () => {
     const productsCount = prouctsInCart.length;
     return(
         <div className='header' id="header">
-                <Link className='fakeshop-icon' to='/'>
-                    Hello World
-                </Link>
+            <Link className='fakeshop-icon' to='/'>
+                Hello World
+            </Link>
+            <SearchBar />
             <Link className='cart-container' to="/cart">
                 <h5 className='products-count'>{productsCount}</h5>
                 <AiOutlineShoppingCart className='cart-icon' />

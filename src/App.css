@@ -10,7 +10,6 @@
 }
 
 /* ===== Header ===== */
-
 .header {
   display: flex;
   flex-direction: row;
@@ -32,6 +31,21 @@
   font-size: 1.3rem;
   text-transform: uppercase;
   margin: 0rem 1rem;
+}
+/* ----- Search Bar ----- */
+.search-bar {
+}
+.search-bar > input {
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  width: 588px;
+  border: none;
+  border-bottom: 1px rgb(255, 153, 0) solid;
+}
+.search-bar > input:focus {
+  outline: 0.1rem solid rgb(255, 153, 0);
+  border-radius: 2rem;
+  box-shadow: 0 0 0.3rem 0.01rem rgb(255, 153, 0);
 }
 
 /* ----- Header Cart ----- */
@@ -55,7 +69,6 @@
   transform: scale(1.7);
   margin-left: 1rem;
 }
-
 /* ===== Header End ===== */
 
 .card-container {
@@ -424,7 +437,7 @@
 /* ===== Custom Scrollbar ===== */
 /* width */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 7px;
 }
 
 /* Track */

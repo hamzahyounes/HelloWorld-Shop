@@ -7,6 +7,20 @@ export const setProducts = products => {
     }
 }
 
+export const setSearchedProducts = searchedProducts => {
+    return {
+        type: actionTypes.SET_SEARCHED_PRODUCTS,
+        payload: searchedProducts,
+    }
+}
+
+export const setSearchQuery = query => {
+    return {
+        type: actionTypes.SET_QUERY,
+        payload: query
+    }
+}
+
 export const selectProduct = product => {
     return{
         type: actionTypes.SELECTED_PRODUCT,

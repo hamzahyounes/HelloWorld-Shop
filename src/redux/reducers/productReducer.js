@@ -12,6 +12,24 @@ export const productReducer = (state= initialState, {type, payload}) => {
     }
 }
 
+export const searchedProductsReducer = (state=[], {type, payload}) => {
+    switch(type) {
+        case actionTypes.SET_SEARCHED_PRODUCTS:
+            return {...state, products: payload}
+        default:
+            return state;
+    }
+}
+
+export const searchQuery = (state = '', {type, payload}) => {
+    switch(type) {
+        case actionTypes.SET_QUERY:
+            return payload
+        default:
+            return state
+    }
+}
+
 export const selectedProductReducer = (state = {}, {type, payload}) => {
     switch (type) {
         case actionTypes.SELECTED_PRODUCT:
