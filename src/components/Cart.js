@@ -37,7 +37,9 @@ const Cart = () => {
                                 <h6 className="product-description" >{description}</h6>
                                 <div className='qunatity-container'>
                                     <FaMinus className='subtract-quantity' onClick={() => subsractProductCart(product)}/>
-                                    <p style={{color: "#666", fontWeight:"bold"}} className='quantity'>{count}</p>
+                                    <div className='quantity-box'>
+                                        <p style={{color: "#666", fontWeight:"bold"}} className='quantity'>{count}</p>
+                                    </div>
                                     <TiPlus className='add-quantity' onClick={() => addProductCart(product)}/>
                                 </div>
                                 <div className="remove-from-cart" onClick={() => removeProductFromCart(product)}>
