@@ -13,20 +13,30 @@ const Filter = () => {
     const category = useSelector(state => state.category)
     console.log("comes from: ", useSelector(state => state.category))
     const setCategProducts = (category) => {
-        switch(category) {
-            case "all":
-                return allProducts;
-            case "men's clothing":
-                return allProducts.filter(p => p.category === "men's clothing")
-            case "women's clothing":
-                return allProducts.filter(p => p.category === "women's clothing")
-            case 'jewelery':
-                return allProducts.filter(p => p.category === "jewelery")
-            case 'electronics':
-                return allProducts.filter(p => p.category === "electronics")
-            default:
-                return allProducts;
-        }
+        let newState = [];
+        category.forEach(c => {
+            console.log("Comes from category.forEach: ", c)
+            switch(c) {
+                case "all":
+                    return allProducts;
+                case "men's clothing":
+                    console.log("men's clothing detected")
+                    console.log("men's clothing detected and: ", allProducts.filter(p => p.category === "men's clothing"))
+                    console.log([...newState, ...allProducts.filter(p => p.category === "men's clothing")])
+                    return allProducts.filter(p => p.category === "men's clothing")
+                case "women's clothing":
+                    console.log([...newState, ...allProducts.filter(p => p.category === "women's clothing")])
+                    return allProducts.filter(p => p.category === "women's clothing")
+                case 'jewelery':
+                    console.log([...newState, ...allProducts.filter(p => p.category === "jewelery")])
+                    return allProducts.filter(p => p.category === "jewelery")
+                case 'electronics':
+                    console.log([...newState, ...allProducts.filter(p => p.category === "electronics")])
+                    return allProducts.filter(p => p.category === "electronics")
+                default:
+                    return allProducts;
+            }
+        })
     }
 
     useEffect(() => {
@@ -36,6 +46,8 @@ const Filter = () => {
             payload: setCategProducts(category),
         })
         console.log(category, allProducts, setCategProducts(category))
+        console.log("Comes from Filter Component setProducts: ", setCategProducts(category))
+
     }, [category])
     
     return (

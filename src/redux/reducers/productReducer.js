@@ -14,12 +14,11 @@ export const productReducer = (state= initialState, {type, payload}) => {
     }
 }
 
-export const setCategoryProducts = (state= [2], { type, payload } ) => {
+export const setCategoryProducts = (state= [], { type, payload } ) => {
     switch(type) {
         case actionTypes.SET_CATEGORY_PRODUCTS:
             console.log("The payload", payload)
             return [245]
-            return payload;
         default:
             return state;
     }
