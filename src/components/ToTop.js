@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect} from 'react';
 import { BiArrowFromBottom } from 'react-icons/bi';
 
 const ToTop = () => {
@@ -19,9 +19,10 @@ const ToTop = () => {
     useEffect(() => {
         window.addEventListener("scroll", scrollFunction)
         return () => window.removeEventListener('scroll', scrollFunction)
+        //The goal of this return() is to remove the eventListener when the component unmount.
     }, [])
 
-    return <div className='up'>
+    return <div className='up' onClick={toTopFunction}>
                 <BiArrowFromBottom className='up-icon' onClick={toTopFunction}/>
             </div>
 }

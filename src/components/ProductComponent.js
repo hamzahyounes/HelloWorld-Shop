@@ -39,12 +39,14 @@ const ProductComponent = () => {
                             </div>
                         </Link>
                         <div className="info">
-                            <Link to={`/products/${id}`} className="card-link">
-                                <div className="title">{title}</div>
-                            </Link>
-                                <div className="price">${price}</div>
-                                <div className="category">{category}</div>
-                                <div className="product-cart" onClick={() => addProductCart(product)}>Add To Cart</div>
+                            <div>
+                                <Link to={`/products/${id}`} className="card-link">
+                                    <div className="title">{title}</div>
+                                </Link>
+                                    <div className="price">${price}</div>
+                                    <div className="category">{category}</div>
+                            </div>
+                            <div className="product-cart" onClick={() => addProductCart(product)}>Add To Cart</div>
                         </div>
                     </div>
                 </div>

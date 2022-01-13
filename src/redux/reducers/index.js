@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { productCartProducer, productReducer, searchedProductsReducer, searchQuery, selectedProductReducer } from "./productReducer";
+import { currentCategory, setCategoryProducts, productCartProducer, productReducer, searchedProductsReducer, searchQuery, selectedProductReducer } from "./productReducer";
 
 export const reducers = combineReducers({
     allProducts: productReducer,
@@ -7,4 +7,6 @@ export const reducers = combineReducers({
     product: selectedProductReducer,
     cart: productCartProducer,
     query: searchQuery,
+    category: currentCategory,
+    categoryProducts: setCategoryProducts,
 })

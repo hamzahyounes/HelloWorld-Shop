@@ -4,9 +4,12 @@ import { ToastContainer } from 'react-toastify'
 import Header from '../src/components/Header';
 import ProductDetail from './components/ProductDetail';
 import ProductList from './components/ProductList'
+import Cart from './components/Cart';
 import './App.css'
 import 'react-toastify/dist/ReactToastify.css';
-import Cart from './components/Cart';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import ToTop from './components/ToTop';
 
 class App extends React.Component {
 
@@ -23,7 +26,7 @@ class App extends React.Component {
               <Route>404 Not Found</Route>
             </Switch> 
           </Router>
-
+          <ToTop />
         </div>
     )
   }

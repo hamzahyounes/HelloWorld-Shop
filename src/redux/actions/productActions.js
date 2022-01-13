@@ -13,11 +13,21 @@ export const setSearchedProducts = searchedProducts => {
         payload: searchedProducts,
     }
 }
-
+export const setEmptyCart = () => {
+    return {
+        type: actionTypes.EMPTY_CART,
+    }
+}
 export const setSearchQuery = query => {
     return {
         type: actionTypes.SET_QUERY,
         payload: query
+    }
+}
+export const setCurrentCategory = category => {
+    return {
+        type: actionTypes.SET_CATEGORY,
+        payload: category,
     }
 }
 

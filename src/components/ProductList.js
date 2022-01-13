@@ -3,8 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { BeatLoader } from "react-spinners";
 import { setProducts } from '../redux/actions/productActions'
+import Filter from "./Filter";
 import ProductComponent from "./ProductComponent";
-import ToTop from "./ToTop";
 
 const ProductList = () => {
     const [loading, setLoading] = useState(true)
@@ -32,8 +32,6 @@ const ProductList = () => {
         fetchProducts()
     }, [])
 
-
-
     if(loading) {
         return (
             <div className="beat-loader-container">
@@ -44,12 +42,12 @@ const ProductList = () => {
             </div>
     )}
     return ( 
-        <>
-        <div className="container">
-            <ProductComponent />
-        </div> 
-        <ToTop />
-        </>
+        <div className="general-container">
+            <div className="filter-container"><Filter className="filter-button" /></div>
+            <div className="container">
+                <ProductComponent />
+            </div> 
+        </div>
     );
 }
  

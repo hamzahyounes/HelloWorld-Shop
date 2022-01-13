@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IoIosTrash } from 'react-icons/io';
 import { TiPlus } from 'react-icons/ti'
 import { FaMinus } from 'react-icons/fa'
-import { toast } from "react-toastify"
-import { addProductToCart, substractProductFromCart, removeFromCart } from '../redux/actions/productActions';
+import { addProductToCart, substractProductFromCart, removeFromCart, setEmptyCart } from '../redux/actions/productActions';
 
 const Cart = () => {
     const products = useSelector(state => state.cart)
@@ -17,6 +16,9 @@ const Cart = () => {
     }
     const subsractProductCart = product => {
         dispatch(substractProductFromCart(product))
+    }
+    const emptyCart = () => {
+        dispatch(setEmptyCart())
     }
 
     return(
@@ -51,6 +53,7 @@ const Cart = () => {
                     </div>
                 })
             }
+            {products.length === 0 ? null : <button className='empty-cart' onClick={emptyCart}>Empty Cart</button>}
             </React.Fragment>
 
     )

@@ -3,10 +3,23 @@ import { actionTypes } from "../constants/actions-types";
 const initialState = {
     products: []
 }
+
 export const productReducer = (state= initialState, {type, payload}) => {
     switch(type) {
         case actionTypes.SET_PRODUCTS:
             return { ...state, products: payload};
+
+        default:
+            return state;
+    }
+}
+
+export const setCategoryProducts = (state= [2], { type, payload } ) => {
+    switch(type) {
+        case actionTypes.SET_CATEGORY_PRODUCTS:
+            console.log("The payload", payload)
+            return [245]
+            return payload;
         default:
             return state;
     }
@@ -29,6 +42,19 @@ export const searchQuery = (state = '', {type, payload}) => {
             return state
     }
 }
+export const currentCategory = (state = 'all', { type, payload }) => {
+    switch (type) {
+        case actionTypes.SET_CATEGORY:
+            console.log("The current Category: ", payload)
+            return state
+        default:
+            return state;
+    }
+}
+// export const currentCategoryProducts = (state = [], { type, payload }) => {
+//     if(type !== '') return payload;
+//     return state;
+// }   
 
 export const selectedProductReducer = (state = {}, {type, payload}) => {
     switch (type) {
@@ -63,12 +89,14 @@ export const productCartProducer = (state= [], {type, payload}) => {
                 state[subtractedIndex] = subtractedProduct
                 return newState
             }
-
         case actionTypes.REOMOVE_PRODUCT_FROM_CART:
             const index = state.indexOf(payload)
             let newState = [...state];
             newState.splice(index, 1);
             return newState
+
+        case actionTypes.EMPTY_CART:
+            return []
         default:
             return state
     }

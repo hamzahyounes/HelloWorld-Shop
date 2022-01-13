@@ -7,6 +7,7 @@ import axios from "axios";
 import { removeSelectedProduct, selectProduct, addProductToCart } from "../redux/actions/productActions";
 import { BeatLoader } from "react-spinners";
 import 'react-toastify/dist/ReactToastify.css';
+import ProductsCarousel from "./ProductsCarousel";
 
 
 const ProductDetail = () => {
@@ -64,6 +65,8 @@ const ProductDetail = () => {
                 </div>
             </div> 
         }
+            {/* <ProductsCarousel /> */}
+            {Object.keys(selectedProduct).length === 0 ? null : <ProductsCarousel />}
         </div>
     );
 }
