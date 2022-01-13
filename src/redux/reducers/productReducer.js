@@ -42,11 +42,11 @@ export const searchQuery = (state = '', {type, payload}) => {
             return state
     }
 }
-export const currentCategory = (state = 'all', { type, payload }) => {
+export const currentCategory = (state = [], { type, payload }) => {
     switch (type) {
         case actionTypes.SET_CATEGORY:
-            console.log("The current Category: ", payload)
-            return state
+            console.log("The current Category from the reducer: ", payload)
+            return state.concat([ payload])
         default:
             return state;
     }

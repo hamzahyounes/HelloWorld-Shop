@@ -38,7 +38,7 @@ const Cart = () => {
                                 <div style={{backgroundColor: "white"}}><h6 className="product-category-cart">{category}</h6></div>
                                 <h6 className="product-description" >{description}</h6>
                                 <div className='qunatity-container'>
-                                    <FaMinus className='subtract-quantity' onClick={() => subsractProductCart(product)}/>
+                                    <FaMinus className={count > 0 ? 'subtract-quantity' : 'subtract-quantity faded-btn'} onClick={() => subsractProductCart(product)}/>
                                     <div className='quantity-box'>
                                         <p style={{color: "#666", fontWeight:"bold"}} className='quantity'>{count}</p>
                                     </div>

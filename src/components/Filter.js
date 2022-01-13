@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { GrFilter } from 'react-icons/gr'
 import { setCurrentCategory } from '../redux/actions/productActions';
 import { actionTypes } from "../redux/constants/actions-types";
 
@@ -10,6 +11,7 @@ const Filter = () => {
         dispatch(setCurrentCategory(e.target.value))
     }
     const category = useSelector(state => state.category)
+    console.log("comes from: ", useSelector(state => state.category))
     const setCategProducts = (category) => {
         switch(category) {
             case "all":
@@ -38,25 +40,29 @@ const Filter = () => {
     
     return (
         <div>
+            <div className='category-field'>
+                <h5 className='filters'>Filters</h5>
+                <GrFilter className='filter-icon'/>
+            </div>
             {/* <div className='category-field'>
                 <label htmlFor='All-Categories'>All Products</label>
                 <input type="radio" id="All-Categories" value="all" name='category' onClick={e => handleCategoryProducts(e)}/>
             </div> */}
             <div className='category-field'>
                 <label htmlFor='Men'>Men Clothes</label>
-                <input type="radio" id="Men" value="men's clothing" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <input type="checkbox" id="Men" value="men's clothing" name='category' onClick={e => handleCategoryProducts(e)}/>
             </div>
             <div className='category-field'>
                 <label htmlFor='Women'>Women Clothes</label>
-                <input type="radio" id="Women" value="women's clothing" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <input type="checkbox" id="Women" value="women's clothing" name='category' onClick={e => handleCategoryProducts(e)}/>
             </div>
             <div className='category-field'>
                 <label htmlFor='Jewelery'>Jewelery</label>
-                <input type="radio" id="Jewelery" value="jewelery" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <input type="checkbox" id="Jewelery" value="jewelery" name='category' onClick={e => handleCategoryProducts(e)}/>
             </div>
             <div className='category-field'>
                 <label htmlFor='Electronics'>Electronics</label>
-                <input type="radio" id="Electronics" value="electronics" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <input type="checkbox" id="Electronics" value="electronics" name='category' onClick={e => handleCategoryProducts(e)}/>
             </div>
         </div>
     )

@@ -39,7 +39,20 @@
   cursor: pointer;
 }
 .category-field:nth-child(1) {
-  box-shadow: 0 0 0.2rem 0.001rem rgb(124, 124, 124);
+  /* box-shadow: 0 0 0.2rem 0.001rem rgb(124, 124, 124); */
+  cursor: default;
+}
+.category-field > h5 {
+  color: rgba(255, 153, 0, 0.719);
+  padding: 0.5rem 0;
+  margin-left: 1rem;
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+.filter-icon {
+  transform: scale(1.4);
+  margin-right: 0.9rem;
+  color: #555;
 }
 .category-field > label {
   color: #555;
@@ -465,6 +478,14 @@
   transform: scale(1.1);
   color: rgb(255, 153, 0);
   cursor: pointer;
+}
+.subtract-quantity:active,
+.add-quantity:active {
+  transform: scale(1);
+}
+.faded-btn {
+  color: rgba(255, 153, 0, 0.616);
+  cursor: default;
 }
 .remove-from-cart {
   background-color: transparent;
