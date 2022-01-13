@@ -9,6 +9,7 @@ const ProductComponent = () => {
     const dispatch = useDispatch();
     const allProducts = useSelector(state => state.allProducts.products);
     const searchedProducts = useSelector(state => state.searchedProducts.products);
+    const categoryProducts = useSelector(state => state.categoryProducts)
     const query = useSelector(state => state.query);
     const addProductCart = product => {
         dispatch(addProductToCart(product))
@@ -16,11 +17,18 @@ const ProductComponent = () => {
     }
     let products = null;
 
-    if(query.length === 0) products = allProducts;
+    if(query.length === 0) products = categoryProducts.length === 0 ? allProducts : categoryProducts;
     else {
-        products = searchedProducts;
-        if(products.length === 0)
-        return <h4>Sorry, No Matches 🙄.</h4>
+        if(categoryProducts.length === 0) {
+            products = searchedProducts;
+            if(products.length === 0)
+            return <h4>Sorry, No Matches 🙄.</h4>
+        }
+        else{
+            products = categoryProducts.filter(p => p.title.toLowerCase().includes(query));
+            if(products.length === 0)
+            return <h4>Sorry, No Matches 🙄.</h4>
+        }
     }
     window.onscroll = function() {
         if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {

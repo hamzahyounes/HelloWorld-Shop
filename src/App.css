@@ -160,6 +160,7 @@
 
 .card-container {
   width: 18vw;
+  height: 57vh;
   margin-bottom: 1.5rem;
   border: rgb(207, 207, 207) 1px solid;
   border-radius: 0.4rem;
@@ -484,7 +485,7 @@
   transform: scale(1);
 }
 .faded-btn {
-  color: rgba(255, 153, 0, 0.616);
+  color: rgba(255, 153, 0, 0.445);
   cursor: default;
 }
 .remove-from-cart {

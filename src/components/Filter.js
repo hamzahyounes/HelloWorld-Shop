@@ -11,44 +11,41 @@ const Filter = () => {
         dispatch(setCurrentCategory(e.target.value))
     }
     const category = useSelector(state => state.category)
-    console.log("comes from: ", useSelector(state => state.category))
     const setCategProducts = (category) => {
         let newState = [];
         category.forEach(c => {
-            console.log("Comes from category.forEach: ", c)
             switch(c) {
                 case "all":
                     return allProducts;
                 case "men's clothing":
-                    console.log("men's clothing detected")
-                    console.log("men's clothing detected and: ", allProducts.filter(p => p.category === "men's clothing"))
-                    console.log([...newState, ...allProducts.filter(p => p.category === "men's clothing")])
-                    return allProducts.filter(p => p.category === "men's clothing")
+                    newState = [...newState, ...allProducts.filter(p => p.category === "men's clothing")]
+                    return newState
                 case "women's clothing":
-                    console.log([...newState, ...allProducts.filter(p => p.category === "women's clothing")])
-                    return allProducts.filter(p => p.category === "women's clothing")
+                    newState = [...newState, ...allProducts.filter(p => p.category === "women's clothing")]
+                    return newState
                 case 'jewelery':
-                    console.log([...newState, ...allProducts.filter(p => p.category === "jewelery")])
-                    return allProducts.filter(p => p.category === "jewelery")
+                    newState = [...newState, ...allProducts.filter(p => p.category === "jewelery")]
+                    return newState
                 case 'electronics':
-                    console.log([...newState, ...allProducts.filter(p => p.category === "electronics")])
-                    return allProducts.filter(p => p.category === "electronics")
+                    newState = [...newState, ...allProducts.filter(p => p.category === "electronics")]
+                    return newState
                 default:
                     return allProducts;
             }
         })
+        return newState
     }
 
+    const isChecked = (value) => {
+        if(category.includes(value)) return true
+    }
     useEffect(() => {
-        console.log("The products: ", setCategProducts(category))
         dispatch({
             type: actionTypes.SET_CATEGORY_PRODUCTS,
             payload: setCategProducts(category),
         })
-        console.log(category, allProducts, setCategProducts(category))
-        console.log("Comes from Filter Component setProducts: ", setCategProducts(category))
-
     }, [category])
+
     
     return (
         <div>
@@ -56,25 +53,43 @@ const Filter = () => {
                 <h5 className='filters'>Filters</h5>
                 <GrFilter className='filter-icon'/>
             </div>
-            {/* <div className='category-field'>
+
+            <div className='category-field'>
                 <label htmlFor='All-Categories'>All Products</label>
-                <input type="radio" id="All-Categories" value="all" name='category' onClick={e => handleCategoryProducts(e)}/>
-            </div> */}
+                <input 
+                    type="checkbox" 
+                    id="All-Categories" 
+                    value="all" 
+                    name='category' 
+                    onChange={() => {
+                        dispatch({
+                            type: actionTypes.SET_CATEGORY_PRODUCTS,
+                            payload: [],
+                        })
+                        dispatch({
+                            type: 'RESET_CATEGORY',
+                            payload: [],
+                        })
+                    }}
+                    checked={category.length === 0 || category.length === 4 ? true : false}
+                />
+            </div>
+            
             <div className='category-field'>
                 <label htmlFor='Men'>Men Clothes</label>
-                <input type="checkbox" id="Men" value="men's clothing" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <input checked={isChecked("men's clothing")} type="checkbox" id="Men" value="men's clothing" name='category' onClick={e => handleCategoryProducts(e)}/>
             </div>
             <div className='category-field'>
                 <label htmlFor='Women'>Women Clothes</label>
-                <input type="checkbox" id="Women" value="women's clothing" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <input checked={isChecked("women's clothing")} type="checkbox" id="Women" value="women's clothing" name='category' onClick={e => handleCategoryProducts(e)}/>
             </div>
             <div className='category-field'>
                 <label htmlFor='Jewelery'>Jewelery</label>
-                <input type="checkbox" id="Jewelery" value="jewelery" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <input checked={isChecked("jewelery")} type="checkbox" id="Jewelery" value="jewelery" name='category' onClick={e => handleCategoryProducts(e)}/>
             </div>
             <div className='category-field'>
                 <label htmlFor='Electronics'>Electronics</label>
-                <input type="checkbox" id="Electronics" value="electronics" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <input checked={isChecked("electronics")} type="checkbox" id="Electronics" value="electronics" name='category' onClick={e => handleCategoryProducts(e)}/>
             </div>
         </div>
     )

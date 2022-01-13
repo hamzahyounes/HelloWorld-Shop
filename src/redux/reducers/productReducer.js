@@ -17,8 +17,7 @@ export const productReducer = (state= initialState, {type, payload}) => {
 export const setCategoryProducts = (state= [], { type, payload } ) => {
     switch(type) {
         case actionTypes.SET_CATEGORY_PRODUCTS:
-            console.log("The payload", payload)
-            return [245]
+            return payload
         default:
             return state;
     }
@@ -41,19 +40,22 @@ export const searchQuery = (state = '', {type, payload}) => {
             return state
     }
 }
+
 export const currentCategory = (state = [], { type, payload }) => {
     switch (type) {
         case actionTypes.SET_CATEGORY:
-            console.log("The current Category from the reducer: ", payload)
-            return state.concat([ payload])
+            if(state.indexOf(payload) === -1) return state.concat([payload])
+            else {
+                const newState = [...state]
+                newState.splice(state.indexOf(payload), 1)
+                return newState
+            }
+        case 'RESET_CATEGORY':
+            return []
         default:
             return state;
     }
 }
-// export const currentCategoryProducts = (state = [], { type, payload }) => {
-//     if(type !== '') return payload;
-//     return state;
-// }   
 
 export const selectedProductReducer = (state = {}, {type, payload}) => {
     switch (type) {
