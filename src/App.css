@@ -3,6 +3,10 @@
   user-select: none;
   margin: 0;
 }
+.slick-next {
+  color: red;
+  right: 0;
+}
 .general-container {
   display: flex;
   flex-direction: row;
@@ -80,6 +84,7 @@
   border-radius: 100%;
   transition: 0.2s ease opacity;
   cursor: pointer;
+  z-index: 5;
 }
 .up:hover {
   background-color: rgb(255, 153, 0);
@@ -104,7 +109,7 @@
   top: 0;
   box-shadow: 0px 0px 3px 0.1px rgb(209, 209, 209);
   margin-bottom: 1rem;
-  z-index: 2;
+  z-index: 3;
   background-color: #fff;
 }
 .fakeshop-icon {
@@ -160,6 +165,7 @@
 
 .card-container {
   width: 18vw;
+  z-index: 2;
   height: 57vh;
   margin-bottom: 1.5rem;
   border: rgb(207, 207, 207) 1px solid;
@@ -380,6 +386,12 @@
   margin: 0.7rem;
   border: 0.1rem rgba(0, 0, 0, 0.171) solid;
   border-radius: 0.5rem;
+  transition: 0.2s ease background-color transform;
+  transition: 0.1s ease transform;
+}
+.product-in-carousel:hover {
+  background-color: rgb(240, 240, 240);
+  transform: scale(0.97);
 }
 .carousel-image {
   width: 9rem;
@@ -510,9 +522,10 @@
   background-color: rgb(175, 3, 32);
 }
 .remove-from-cart h4 {
-  color: #888;
+  color: rgb(80, 80, 80);
+  font-weight: normal;
   background-color: transparent;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
 }
 .remove-from-cart-icon {
   color: #fff;

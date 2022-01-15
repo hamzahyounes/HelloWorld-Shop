@@ -3,6 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GrFilter } from 'react-icons/gr'
 import { setCurrentCategory } from '../redux/actions/productActions';
 import { actionTypes } from "../redux/constants/actions-types";
+import CheckboxLabels from './CheckboxLabels';
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import { orange } from '@mui/material/colors';
+
 
 const Filter = () => {
     const dispatch = useDispatch();
@@ -37,6 +43,7 @@ const Filter = () => {
     }
 
     const isChecked = (value) => {
+        console.log("The value is: ", value)
         if(category.includes(value)) return true
     }
     useEffect(() => {
@@ -55,12 +62,8 @@ const Filter = () => {
             </div>
 
             <div className='category-field'>
-                <label htmlFor='All-Categories'>All Products</label>
-                <input 
-                    type="checkbox" 
-                    id="All-Categories" 
-                    value="all" 
-                    name='category' 
+                <label htmlFor='All-Categories'>All Products ({allProducts.length})</label>
+                <Checkbox 
                     onChange={() => {
                         dispatch({
                             type: actionTypes.SET_CATEGORY_PRODUCTS,
@@ -72,24 +75,51 @@ const Filter = () => {
                         })
                     }}
                     checked={category.length === 0 || category.length === 4 ? true : false}
+                    value="all"
+                    id="All-Categories" 
+                    sx={{ color: "#aaa",'&.Mui-checked': {color: orange[600],}, }} 
                 />
             </div>
             
             <div className='category-field'>
-                <label htmlFor='Men'>Men Clothes</label>
-                <input checked={isChecked("men's clothing")} type="checkbox" id="Men" value="men's clothing" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <label htmlFor='Men'>Men Clothes ({allProducts.filter(p => p.category === "men's clothing").length})</label>
+                <Checkbox 
+                    id="Men" 
+                    checked={category.includes("men's clothing") ? true : false} 
+                    value="men's clothing" 
+                    onClick={e => handleCategoryProducts(e)} 
+                    sx={{ color: "#aaa",'&.Mui-checked': {color: orange[600],}, }} 
+                />
             </div>
             <div className='category-field'>
-                <label htmlFor='Women'>Women Clothes</label>
-                <input checked={isChecked("women's clothing")} type="checkbox" id="Women" value="women's clothing" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <label htmlFor='Women'>Women Clothes ({allProducts.filter(p => p.category === "women's clothing").length})</label>
+                <Checkbox
+                    id="Women" 
+                    checked={category.includes("women's clothing") ? true : false} 
+                    value="women's clothing" 
+                    onClick={e => handleCategoryProducts(e)} 
+                    sx={{ color: "#aaa",'&.Mui-checked': {color: orange[600],}, }} 
+                />
             </div>
             <div className='category-field'>
-                <label htmlFor='Jewelery'>Jewelery</label>
-                <input checked={isChecked("jewelery")} type="checkbox" id="Jewelery" value="jewelery" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <label htmlFor='Jewelery'>Jewelery ({allProducts.filter(p => p.category === "jewelery").length})</label>
+                <Checkbox
+                    checked={category.includes("jewelery") ? true : false} 
+                    id="Jewelery" 
+                    value="jewelery" 
+                    onClick={e => handleCategoryProducts(e)}
+                    sx={{ color: "#aaa",'&.Mui-checked': {color: orange[600],}, }} 
+                    />
             </div>
             <div className='category-field'>
-                <label htmlFor='Electronics'>Electronics</label>
-                <input checked={isChecked("electronics")} type="checkbox" id="Electronics" value="electronics" name='category' onClick={e => handleCategoryProducts(e)}/>
+                <label htmlFor='Electronics'>Electronics ({allProducts.filter(p => p.category === "electronics").length})</label>
+                <Checkbox 
+                    checked={category.includes('electronics') ? true : false} 
+                    id="Electronics" 
+                    value="electronics" 
+                    onClick={e => handleCategoryProducts(e)}
+                    sx={{ color: "#aaa",'&.Mui-checked': {color: orange[600],}, }} 
+                    />
             </div>
         </div>
     )
