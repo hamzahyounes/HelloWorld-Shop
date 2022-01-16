@@ -45,6 +45,7 @@ const ProductComponent = () => {
                             <div className="image">
                                 <img src={image} alt={title}></img>
                             </div>
+                            <div className="h-line"></div>
                         </Link>
                         <div className="info">
                             <div>

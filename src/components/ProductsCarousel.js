@@ -10,7 +10,7 @@ const ProductsCarousel = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "rgba(0, 0, 0, 0.3)", borderRadius: "100%", }}
+        style={{ ...style, display: "block", background: "rgba(0, 0, 0, 0.2)", borderRadius: "100%", }}
         onClick={onClick}
       />
     );
@@ -21,7 +21,7 @@ const ProductsCarousel = () => {
     return (
       <div
         className={className}
-        style={{ ...style, display: "block", background: "rgba(0, 0, 0, 0.3)", borderRadius: "100%", }}
+        style={{ ...style, display: "block", background: "rgba(0, 0, 0, 0.2)", borderRadius: "100%", }}
         onClick={onClick}
       />
     );

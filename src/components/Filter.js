@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { GrFilter } from 'react-icons/gr'
+import { FcFilledFilter } from 'react-icons/fc'
 import { setCurrentCategory } from '../redux/actions/productActions';
 import { actionTypes } from "../redux/constants/actions-types";
-import CheckboxLabels from './CheckboxLabels';
 import Checkbox from '@mui/material/Checkbox';
-import FormGroup from '@mui/material/FormGroup';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import { orange } from '@mui/material/colors';
-
+import Switch from '@mui/material/Switch';
+import OrangeSwitch from './OrangeSwitchBtn';
 
 const Filter = () => {
     const dispatch = useDispatch();
@@ -58,12 +56,12 @@ const Filter = () => {
         <div>
             <div className='category-field'>
                 <h5 className='filters'>Filters</h5>
-                <GrFilter className='filter-icon'/>
+                <FcFilledFilter className='filter-icon'/>
             </div>
 
             <div className='category-field'>
                 <label htmlFor='All-Categories'>All Products ({allProducts.length})</label>
-                <Checkbox 
+                {/* <Checkbox 
                     onChange={() => {
                         dispatch({
                             type: actionTypes.SET_CATEGORY_PRODUCTS,
@@ -78,7 +76,23 @@ const Filter = () => {
                     value="all"
                     id="All-Categories" 
                     sx={{ color: "#aaa",'&.Mui-checked': {color: orange[600],}, }} 
-                />
+                /> */}
+                <OrangeSwitch
+                    onChange={() => {
+                    dispatch({
+                        type: actionTypes.SET_CATEGORY_PRODUCTS,
+                        payload: [],
+                    })
+                    dispatch({
+                        type: 'RESET_CATEGORY',
+                        payload: [],
+                    })
+                    }}
+                    checked={category.length === 0 || category.length === 4 ? true : false}
+                    value="all"
+                    id="All-Categories" 
+                    sx={{ color: "#aaa",'&.Mui-checked': {color: orange[600],}, }} 
+                    />
             </div>
             
             <div className='category-field'>

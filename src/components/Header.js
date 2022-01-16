@@ -4,7 +4,9 @@ import { withRouter } from 'react-router-dom';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import { Link } from 'react-router-dom';
 import SearchBar from './SearchBar';
-
+import { Avatar } from '@mui/material';
+import { orange } from '@mui/material/colors';
+import LongMenu from './LongMenu';
 
 const Header = (props) => {
     const prouctsInCart = useSelector(state => state.cart);
@@ -16,10 +18,12 @@ const Header = (props) => {
                 Hello World
             </Link>
             {!hideSearchBar ? null: <SearchBar />}
-            <Link className='cart-container' to="/cart">
+            <div className='cart-container' >
                 <h5 className='products-count'>{productsCount}</h5>
-                <AiOutlineShoppingCart className='cart-icon' />
-            </Link>
+                <Link to="/cart"><AiOutlineShoppingCart className='cart-icon' /></Link>
+                <Avatar style={{marginLeft: "1rem"}} sx={{ bgcolor: orange[500] }}>H</Avatar>
+                <LongMenu />
+            </div>
         </div>
     )
 }
