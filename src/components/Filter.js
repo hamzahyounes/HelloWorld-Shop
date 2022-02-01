@@ -61,22 +61,7 @@ const Filter = () => {
 
             <div className='category-field'>
                 <label htmlFor='All-Categories'>All Products ({allProducts.length})</label>
-                {/* <Checkbox 
-                    onChange={() => {
-                        dispatch({
-                            type: actionTypes.SET_CATEGORY_PRODUCTS,
-                            payload: [],
-                        })
-                        dispatch({
-                            type: 'RESET_CATEGORY',
-                            payload: [],
-                        })
-                    }}
-                    checked={category.length === 0 || category.length === 4 ? true : false}
-                    value="all"
-                    id="All-Categories" 
-                    sx={{ color: "#aaa",'&.Mui-checked': {color: orange[600],}, }} 
-                /> */}
+
                 <OrangeSwitch
                     onChange={() => {
                     dispatch({
