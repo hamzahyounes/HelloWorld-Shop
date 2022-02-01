@@ -111,3 +111,16 @@ export const removeCartProducts = (state= [], action) => {
             return state;
     }
 }
+
+export const wishlistProducts = (state = [], action) => {
+    switch(action.type) {
+        case actionTypes.ADD_TO_WISHLIST:
+            return state.concat([action.payload])
+        case actionTypes.REMOVE_FROM_WISHLIST:
+            return state.filter(p => p !== action.payload)
+        case actionTypes.EMPTY_WISHLIST:
+            return []
+        default:
+            return state;
+    }
+}

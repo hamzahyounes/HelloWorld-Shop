@@ -64,3 +64,23 @@ export const removeFromCart = id => {
         payload: id,
     }
 }
+
+export const addToWishlist = product => {
+    return {
+        type: actionTypes.ADD_TO_WISHLIST,
+        payload: product,
+    }
+}
+
+export const removeFromWishlist = product => {
+    return {
+        type: actionTypes.REMOVE_FROM_WISHLIST,
+        payload: product,
+    }
+}
+
+export const emptyWishlist = () => {
+    return {
+        type: actionTypes.EMPTY_WISHLIST,
+    }
+}

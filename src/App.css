@@ -201,17 +201,29 @@
   background-color: rgb(243, 73, 101);
 }
 
+.like-container {
+  /* display: inline-block;
+  position: absolute;
+  height: 0; */
+}
+.like-icon {
+  position: relative;
+  left: 0.6rem;
+  bottom: 13rem;
+  transform: scale(1.6);
+  color: rgb(255, 153, 0);
+}
+
 .card {
-  background-color: white;
 }
 .card-link {
   text-decoration: none;
 }
 
 .info {
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   height: 28%;
-  margin-top: 1rem;
+  /* margin-top: 1rem; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -531,7 +543,7 @@
   background-color: rgb(175, 3, 32);
 }
 .remove-from-cart h4 {
-  color: rgb(80, 80, 80);
+  color: rgb(175, 3, 32);
   font-weight: normal;
   background-color: transparent;
   font-size: 0.75rem;
@@ -562,6 +574,54 @@
 .empty-cart:active {
   background-color: rgb(175, 3, 32);
 }
+
+/* WishList */
+.wishlist-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 0.3rem;
+}
+.remove-from-wishlist {
+  background-color: transparent;
+  border: 0.1rem solid rgb(228, 0, 38);
+  border-radius: 0.2rem;
+  cursor: pointer;
+  width: 8rem;
+  height: 1.65rem;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  transition: 0.2s ease background-color;
+}
+.remove-from-wishlist:hover {
+  background-color: rgb(228, 0, 38);
+}
+.remove-from-wishlist:active {
+  background-color: rgb(175, 3, 32);
+}
+.remove-from-wishlist h4 {
+  color: rgb(175, 3, 32);
+  font-weight: normal;
+  background-color: transparent;
+  font-size: 0.7rem;
+}
+.remove-from-cart-icon {
+  color: #fff;
+  transform: scale(1.2);
+  background-color: transparent;
+  display: none;
+}
+.remove-from-wishlist:hover h4 {
+  display: none;
+}
+.remove-from-wishlist:hover .remove-from-cart-icon {
+  display: inline-block;
+}
+
+/* End WishList */
 
 /* Making tag for price */
 .tag {

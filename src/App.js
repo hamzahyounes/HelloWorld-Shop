@@ -5,11 +5,12 @@ import Header from '../src/components/Header';
 import ProductDetail from './components/ProductDetail';
 import ProductList from './components/ProductList'
 import Cart from './components/Cart';
+import WishList from './components/WishList';
+import ToTop from './components/ToTop';
 import './App.css'
 import 'react-toastify/dist/ReactToastify.css';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
-import ToTop from './components/ToTop';
 
 class App extends React.Component {
 
@@ -23,6 +24,7 @@ class App extends React.Component {
               <Route path="/" exact component={ProductList} />
               <Route path="/products/:Id" exact component={ProductDetail} />
               <Route path="/cart" exact component={Cart} />
+              <Route path="/wishlist" exact component={WishList} />
               <Route>404 Not Found</Route>
             </Switch> 
           </Router>

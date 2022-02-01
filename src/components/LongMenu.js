@@ -13,12 +13,12 @@ const options = [
     <p style={{marginRight: "1rem"}}>Your Cart</p>
   </Link>,
 
-  <Link to="/cart" className='cart-container' style={{color: "#444", margin: "auto"}}>
-    <p style={{marginRight: "1rem"}}>Your Wishlist</p>
+  <Link to="/wishlist" className='cart-container' style={{color: "#444", margin: "auto",}}>
+    <p style={{marginRight: "1rem", }}>Your Wishlist</p>
   </Link>,
 
-  <Link to="/cart" className='cart-container' style={{color: "#444", margin: "auto"}}>
-    <p style={{marginRight: "1rem"}}>Log out</p>
+  <Link to="/cart" className='cart-container' style={{color: "#444", margin: "auto",}}>
+    <p style={{marginRight: "1rem", color: "red",}}>Log out</p>
   </Link>,
 ];
 

@@ -73,7 +73,7 @@ const ProductsCarousel = () => {
 
     return (
       <div>
-        {carouselProducts.length === 0 ? null : <h3 style={{marginTop: "1rem"}}>You may need</h3>}
+        {carouselProducts.length === 0 ? null : <h3 style={{marginTop: "1rem"}}>Related</h3>}
         <Slider {...settings}>
             {carouselProducts.map(product => <Link key={product.id} className='carousel-link' to={`/products/${product.id}`}><ProductINCarousel product={product}/></Link>)}
         </Slider>
